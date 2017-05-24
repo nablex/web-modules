@@ -1,0 +1,8 @@
+{
+	"name": "web-modules", 
+	"resources": {
+		"chartist.json": {
+			"url": "chartist.json"
+		}
+	}
+}
