@@ -1,0 +1,14 @@
+{
+	"name": "tinymce", 
+	"resources": {
+		"tinymce.min.js": {
+			"url": "https://cloud.tinymce.com/stable/tinymce.min.js"
+		},
+		"tinymce-form.tpl": {
+			"url": "tinymce.tpl"
+		}, 
+		"tinymce-form.js": {
+			"url": "tinymce.js"
+		}
+	}
+}
