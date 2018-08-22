@@ -1,6 +1,6 @@
-// does not fully work yet, code works standalone but for some reason not when plugged in
-Vue.component("n-form-tinymce", {
-	template: "#n-form-tinymce",
+// seems like react is mandatory for the UI bit, don't want to drag it in, stopped trying to get it to work
+Vue.component("n-form-alloy", {
+	template: "#n-form-alloy",
 	props: {
 		value: {
 			required: true
@@ -54,42 +54,17 @@ Vue.component("n-form-tinymce", {
 	},
 	data: function() {
 		return {
-			timer: null
+			timer: null,
+			editor: null
 		}
 	},
 	ready: function() {
 		var self = this;
-		var parameters = {
-			target: this.$el,
-			setup: function(editor) {
-				editor.on("change", function(event) {
-					if (self.timer) {
-						clearTimeout(self.timer);
-						self.timer = null;
-					}
-					self.timer = setTimeout(function() {
-						self.$emit("input", editor.getContent());
-					}, self.timeout);
-				});
-			}
-		};
-		if (this.nodeId) {
-			// without images_upload_url set, upload tab won't show up
-			parameters['images_upload_url'] = 'non-existent-page';
-			// but we overwrite the image upload handler
-			parameters['images_upload_handler'] = function (blobInfo, success, failure) {
-				self.$services.execute("nabu.cms.attachment.rest.internal.create", {
-					nodeId: self.nodeId,
-					groupId: self.groupId,
-					body: blobInfo
-				}).then(function(result) {
-					success(self.$services.attachment.url(self.nodeId, result.id));
-				}, function(error) {
-					failure(error);
-				});
-			};
-		}
-		tinymce.init(parameters);
+		setTimeout(function() {
+			self.editor = AlloyEditor.editable(self.$el);
+			console.log("editor is", self.editor);
+		}, 1000);
+
 	},
 	computed: {
 		definition: function() {
@@ -112,7 +87,7 @@ Vue.component("n-form-tinymce", {
 });
 
 
-Vue.component("page-form-input-tinymce-configure", {
+Vue.component("page-form-input-alloy-configure", {
 	template: "<div/>",
 	props: {
 		cell: {
@@ -131,8 +106,8 @@ Vue.component("page-form-input-tinymce-configure", {
 	}
 });
 
-Vue.component("page-form-input-tinymce", {
-	template: "<n-form-tinymce ref='form' :value='value' @input=\"function(value) { $emit('input', value) }\" :schema='schema'/>",
+Vue.component("page-form-input-alloy", {
+	template: "<n-form-alloy ref='form' :value='value' @input=\"function(value) { $emit('input', value) }\" :schema='schema'/>",
 	props: {
 		cell: {
 			type: Object,
@@ -176,9 +151,9 @@ window.addEventListener("load", function() {
 	if (application.bootstrap && nabu.page.provide) {
 		application.bootstrap(function($services) {
 			nabu.page.provide("page-form-input", { 
-				component: "page-form-input-tinymce", 
-				configure: "page-form-input-tinymce-configure", 
-				name: "tinymce",
+				component: "page-form-input-alloy", 
+				configure: "page-form-input-alloy-configure", 
+				name: "alloy",
 				namespace: "nabu.page"
 			});
 		});

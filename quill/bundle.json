@@ -1,0 +1,28 @@
+{
+	"name": "quill", 
+	"resources": {
+		"quill-editor.css": {
+			"url": "https://cdn.quilljs.com/1.3.6/quill.snow.css"
+		},
+		"quill-editor.js": {
+			"url": "https://cdn.quilljs.com/1.3.6/quill.js"
+		},
+		"quill-form.tpl": {
+			"url": "quill.tpl"
+		}, 
+		"quill-form.js": {
+			"url": "quill.js"
+		},
+		"quill-form.scss": {
+			"url": "quill.scss"
+		},
+		"modules": {
+			"quill-image-drop.min.js": {
+				"url": "https://raw.githubusercontent.com/kensnyder/quill-image-drop-module/master/image-drop.min.js"
+			},
+			"quill-image-resize.min.js": {
+				"url": "https://raw.githubusercontent.com/kensnyder/quill-image-resize-module/master/image-resize.min.js"
+			}
+		}
+	}
+}

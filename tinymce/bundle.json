@@ -1,8 +1,8 @@
 {
 	"name": "tinymce", 
 	"resources": {
-		"tinymce.min.js": {
-			"url": "https://cloud.tinymce.com/stable/tinymce.min.js"
+		"tinymce.js": {
+			"url": "https://raw.githubusercontent.com/tinymce/tinymce-dist/4.8.2/tinymce.js"
 		},
 		"tinymce-form.tpl": {
 			"url": "tinymce.tpl"

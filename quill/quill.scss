@@ -1,0 +1,15 @@
+.ql-editor {
+	.ql-align-right {
+		img {
+			float: right;
+		}
+	}
+	.ql-align-left {
+		img {
+			float: left;
+		}
+	}
+	&:after {
+		clear: both;
+	}
+}

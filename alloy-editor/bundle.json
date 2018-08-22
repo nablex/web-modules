@@ -1,0 +1,14 @@
+{
+	"name": "alloy", 
+	"resources": {
+		"alloy-editor.js": {
+			"url": "https://raw.githubusercontent.com/liferay/alloy-editor/v1.5.13/dist/alloy-editor/alloy-editor-no-react.js"
+		},
+		"alloy-form.tpl": {
+			"url": "alloy.tpl"
+		}, 
+		"alloy-form.js": {
+			"url": "alloy.js"
+		}
+	}
+}
