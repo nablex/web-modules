@@ -29,6 +29,12 @@
 				"type": "bundle",
 				"url": "https://raw.githubusercontent.com/nablex/web-components/master/bundle.json"
 			}
+		},
+		"modules": {
+			"quill.json": {
+				"type": "bundle",
+				"url": "https://raw.githubusercontent.com/nablex/web-modules/master/quill/bundle.json"
+			}
 		}
 	}
 }
