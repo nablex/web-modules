@@ -22,6 +22,14 @@
 			},
 			"quill-image-resize.min.js": {
 				"url": "https://raw.githubusercontent.com/kensnyder/quill-image-resize-module/master/image-resize.min.js"
+			},
+			"emoticons": {
+				"quill-emoji.js": {
+					"url": "https://raw.githubusercontent.com/contentco/quill-emoji/master/dist/quill-emoji.js"
+				},
+				"quill-emoji.css": {
+					"url": "https://raw.githubusercontent.com/contentco/quill-emoji/master/dist/quill-emoji.css"
+				}
 			}
 		}
 	}

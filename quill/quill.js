@@ -74,6 +74,9 @@ Vue.component("n-form-quill", {
 			[{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
 			[{ 'font': [] }],
 			[{ 'align': [] }],
+			
+			// depends on the module
+			['emoji'],
 
 			['clean']                                         // remove formatting button
 		];
@@ -90,7 +93,8 @@ Vue.component("n-form-quill", {
 					// however these alignment options are not persisted in html (presumably they are in the delta)
 					// you can already do positioning with the alignment in the editor itself so use that
 					modules: [ 'Resize', 'DisplaySize' ] // , 'Toolbar'
-				}
+				},
+				toolbar_emoji: true
 			}
 		});
 		var self = this;
