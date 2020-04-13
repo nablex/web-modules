@@ -203,6 +203,20 @@ window.addEventListener("load", function() {
 			});
 		});
 		
+		$services.router.register({
+			alias: "page-form-quill",
+			enter: function(parameters) {
+				parameters.formComponent = "page-form-input-quill";
+				parameters.configurationComponent = "page-form-input-quill-configure";
+				return new nabu.page.views.FormComponent({propsData: parameters});
+			},
+			form: "quill",
+			category: "Form",
+			icon: "images/components/quill.svg",
+			description: "The quill text component can be used to write rich texts",
+			name: "Quill"
+		});
+		
 		nabu.page.provide("page-format", {
 			format: function(value) {
 				var div = document.createElement("div");
@@ -222,3 +236,46 @@ window.addEventListener("load", function() {
 		});
 	}
 });
+
+
+Vue.view("page-quill", {
+	props: {
+		page: {
+			type: Object,
+			required: true
+		},
+		parameters: {
+			type: Object,
+			required: false
+		},
+		cell: {
+			type: Object,
+			required: true
+		},
+		edit: {
+			type: Boolean,
+			required: true
+		},
+		localState: {
+			type: Object,
+			required: false
+		}
+	},
+	category: "Content",
+	icon: "images/components/quill.svg",
+	description: "The quill text component can be used to write rich texts",
+	name: "Quill",
+	data: function() {
+		return {
+			configuring: false,
+			state: {}
+		}
+	},
+	methods: {
+		configure: function() {
+			this.configuring = true;	
+		}
+	}
+});
+
+
