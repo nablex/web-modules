@@ -93,8 +93,9 @@ Vue.component("n-form-quill", {
 					// however these alignment options are not persisted in html (presumably they are in the delta)
 					// you can already do positioning with the alignment in the editor itself so use that
 					modules: [ 'Resize', 'DisplaySize' ] // , 'Toolbar'
-				},
-				toolbar_emoji: true
+				}
+				// no longer works?
+//				toolbar_emoji: true
 			}
 		});
 		var self = this;
@@ -103,6 +104,7 @@ Vue.component("n-form-quill", {
 				clearTimeout(self.timer);
 				self.timer = null;
 			}
+			console.log("changed", delta);
 			self.timer = setTimeout(function() {
 				self.$emit("input", self.$el.querySelector(".ql-editor").innerHTML);
 			}, self.timeout);
@@ -201,21 +203,21 @@ window.addEventListener("load", function() {
 				name: "quill",
 				namespace: "nabu.page"
 			});
+			$services.router.register({
+				alias: "page-form-quill",
+				enter: function(parameters) {
+					parameters.formComponent = "page-form-input-quill";
+					parameters.configurationComponent = "page-form-input-quill-configure";
+					return new nabu.page.views.FormComponent({propsData: parameters});
+				},
+				form: "quill",
+				category: "Form",
+				icon: "images/components/quill.svg",
+				description: "The quill text component can be used to write rich texts",
+				name: "Quill"
+			});
 		});
 		
-		$services.router.register({
-			alias: "page-form-quill",
-			enter: function(parameters) {
-				parameters.formComponent = "page-form-input-quill";
-				parameters.configurationComponent = "page-form-input-quill-configure";
-				return new nabu.page.views.FormComponent({propsData: parameters});
-			},
-			form: "quill",
-			category: "Form",
-			icon: "images/components/quill.svg",
-			description: "The quill text component can be used to write rich texts",
-			name: "Quill"
-		});
 		
 		nabu.page.provide("page-format", {
 			format: function(value) {
@@ -265,10 +267,14 @@ Vue.view("page-quill", {
 	icon: "images/components/quill.svg",
 	description: "The quill text component can be used to write rich texts",
 	name: "Quill",
+	created: function() {
+		if (!this.cell.state.content) {
+			Vue.set(this.cell.state, "content", "");
+		}
+	},
 	data: function() {
 		return {
-			configuring: false,
-			state: {}
+			configuring: false
 		}
 	},
 	methods: {

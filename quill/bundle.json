@@ -9,10 +9,10 @@
 			}
 		},
 		"quill-editor.css": {
-			"url": "https://cdn.quilljs.com/1.3.7/quill.snow.css"
+			"url": "https://cdn.quilljs.com/1.3.6/quill.snow.css"
 		},
 		"quill-editor.js": {
-			"url": "https://cdn.quilljs.com/1.3.7/quill.js"
+			"url": "https://cdn.quilljs.com/1.3.6/quill.js"
 		},
 		"quill-form.tpl": {
 			"url": "quill.tpl"
