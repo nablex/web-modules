@@ -1,0 +1,23 @@
+{
+	"name": "markdown", 
+	"resources": {
+		"showdown": {
+			"showdown.js": {
+				"url": "https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.js"
+			}
+		},
+		"markdown.tpl": {
+			"url": "markdown.tpl"
+		}, 
+		"markdown.js": {
+			"url": "markdown.js"
+		},
+		"modules": {
+			"markdown": {
+				"logo.png": {
+					"url": "markdown.png"
+				}
+			}
+		}
+	}
+}

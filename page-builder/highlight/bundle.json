@@ -1,0 +1,22 @@
+{
+	"name": "highlight", 
+	"resources": {
+		"highlight": {
+			"highlight.js": {
+				"url": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"
+			},
+			"highlight.css": {
+				"url": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css"
+			}
+		},
+		"highlight.js": {
+			"url": "highlight.js"
+		}, 
+		"highlight.scss": {
+			"url": "highlight.scss"
+		}, 
+		"highlight.tpl": {
+			"url": "highlight.tpl"
+		}
+	}
+}

@@ -1,0 +1,6 @@
+// we don't want hljs hijacking our settings
+// we want to apply as much as possible the styling chosen by the user
+pre.hljs, code.hljs {
+	background: inherit;
+	color: inherit;
+}
