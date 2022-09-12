@@ -12,7 +12,7 @@
 		"nabu": {
 			"js-utils.json": {
 				"type": "bundle",
-				"url": "https://raw.githubusercontent.com/nablex/js-utils/master/bundle.json"
+				"url": "https://raw.githubusercontent.com/nablex/js-utils/aris/bundle.json"
 			},
 			"js-vue-utils.json": {
 				"type": "bundle",
