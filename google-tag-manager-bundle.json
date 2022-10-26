@@ -1,0 +1,8 @@
+{
+	"name": "google-tag-manager", 
+	"resources": {
+		"google-tag-manager.js": {
+			"url": "google/tag-manager.js"
+		}
+	}
+}
