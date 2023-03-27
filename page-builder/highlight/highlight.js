@@ -9,7 +9,7 @@ window.addEventListener("load", function() {
 		var id = "format_highlight_" + $services.vue.$highlightCounter++;
 		var clazz = syntax ? " class='" + syntax + "'" : "";
 		var result = value == null ? null :
-			(inline ? "<div id='" + id + "'>" + value + "</div>" : "<pre id='" + id + "'" + clazz + "><code>" + value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</code></pre>");
+			(inline ? "<div data-id='" + id + "'>" + value + "</div>" : "<pre data-id='" + id + "'" + clazz + "><code>" + value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</code></pre>");
 			
 		setTimeout(function() {
 			if (!$services.vue.$highlightLoaded) {
@@ -18,11 +18,12 @@ window.addEventListener("load", function() {
 			var loaded = $services.vue.$highlightLoaded;
 			
 			var highlight = function(id) {
+				var part = document.querySelector("[data-id='" + id + "']");
 				if (inline) {
-					hljs.highlightAll(document.getElementById(id));
+					hljs.highlightAll(part);
 				}
 				else {
-					hljs.highlightBlock(document.getElementById(id));
+					hljs.highlightBlock(part);
 				}
 			}
 			

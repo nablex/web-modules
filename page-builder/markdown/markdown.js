@@ -52,11 +52,11 @@ window.addEventListener("load", function() {
 			}
 			var id = "format_markdown_" + $services.vue.$highlightCounter++;
 			// we want to hide it while it's loading
-			var result = value == null ? null : "<div style='opacity: 0' id='" + id + "'>" + value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</div>";
+			var result = value == null ? null : "<div style='opacity: 0' data-id='" + id + "'>" + value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</div>";
 			var compile = function(id) {
 				var converter = new showdown.Converter();
 				converter.setFlavor('github');
-				var part = document.getElementById(id);
+				var part = document.querySelector("[data-id='" + id + "']");
 				if (part) {
 					part.innerHTML = nabu.utils.elements.sanitize(converter.makeHtml(part.innerHTML)).replace(/&amp;lt;/g, "&lt;").replace(/&amp;gt;/g, "&gt;");
 					part.style.opacity = 1;
