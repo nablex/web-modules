@@ -73,4 +73,4 @@ window.addEventListener("load", function() {
 		name: "markdown",
 		namespace: "nabu.page"
 	});
-})
+});
